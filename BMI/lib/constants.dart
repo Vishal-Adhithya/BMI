@@ -15,5 +15,3 @@ const kNumberTextStyle = TextStyle(
   fontWeight: FontWeight.w900,
 );
 
-const kMinNumber = 120.0;
-const kMaxNumber = 220.0;
