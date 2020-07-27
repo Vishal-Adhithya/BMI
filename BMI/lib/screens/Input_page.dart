@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constants.dart';
+import '../components/icon_content.dart';
+import '../components/reusable_card.dart';
+import '../constants.dart';
 import 'result_page.dart';
+import '../components/bottom_button.dart';
+import '../components/round_icon_button.dart';
+import 'package:BMI/calculator_brain.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -212,22 +215,21 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomWidget(
+            buttonTitle: 'CALCULATE',
             onTap: () {
+              CalculatorBrain calc =
+                  // ! we can only pass information to the next screen by intialiing in this screen.....
+                  CalculatorBrain(height: height, weight: weight);
+
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return ResultPage();
+                return ResultPage(
+                  bmiResult: calc.calculateBMI(),
+                  interpretation: calc.getInterpertation(),
+                  resultText: calc.getResult(),
+                );
               }));
             },
-            child: Container(
-              child: Text(
-                'CALUCULATE',
-                style: KLableTextStyle,
-              ),
-              color: kBottomContainerColour,
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-            ),
           )
         ],
       ),
@@ -235,24 +237,4 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class RoundIconButton extends StatelessWidget {
-  final IconData icon;
-  final Function onPressed;
-
-  RoundIconButton({@required this.icon, @required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      constraints: BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
-      ),
-      onPressed: onPressed,
-      child: Icon(icon),
-      elevation: 6.0,
-      fillColor: Color(0xFF4c4f5e),
-      shape: CircleBorder(),
-    );
-  }
-}
+/////////////////////////////////////////
