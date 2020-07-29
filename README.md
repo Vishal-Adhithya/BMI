@@ -8,7 +8,10 @@ For FLUTTER DEVELOPMENT MAIL ME ON:
 
 IF YOU ARE RUNNING THE APP LIKE THIS HOW THIS APP WILL BE THERE:
             
-![BMI](https://user-images.githubusercontent.com/58595594/88772434-6a7f7f80-d19e-11ea-9b2a-f43bfebea574.gif)
+
+![Bmi](https://user-images.githubusercontent.com/58595594/88773181-6f90fe80-d19f-11ea-8121-32ab643987b6.gif)
+
+
 
 
 HAPPY CODING:)
